@@ -135,9 +135,9 @@ public abstract class MultiChoiceAdapter<VH extends RecyclerView.ViewHolder> ext
         return getSelectedItemListInternal();
     }
 
-    public void setMultiChoiceSelectionListener(Listener listener) {
-        this.mListener = listener;
-    }
+        public void setMultiChoiceSelectionListener(Listener listener) {
+            this.mListener = listener;
+        }
 
     public void setMultiChoiceToolbar(MultiChoiceToolbar multiChoiceToolbar) {
         multiChoiceToolbar.setToolbarListener(this);
@@ -346,6 +346,16 @@ public abstract class MultiChoiceAdapter<VH extends RecyclerView.ViewHolder> ext
         });
 
         processUpdate(mCurrentView, holder.getAdapterPosition());
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return Long.valueOf(position);
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position;
     }
 
     //endregion
